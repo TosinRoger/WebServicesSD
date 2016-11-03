@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.com.tosin.sd.webservices.models.Book;
+import br.com.tosin.sd.webservices.models.ManagementBook;
 
 @Component
 public class BookService {
@@ -14,27 +14,27 @@ public class BookService {
 	@Autowired
 	private BookDAO db;
 
-	public List<Book> getBooks() {
+	public List<ManagementBook> getBooks() {
 		// TODO Auto-generated method stub
 		return db.getBooks();
 	}
 	
-	public Book getBook(Long id) {
+	public ManagementBook getBook(Long id) {
 		// TODO Auto-generated method stub
 		return db.getBookById(id);
 	}
 
-	public List<Book> getBooks(String name) {
+	public List<ManagementBook> getBooks(String name) {
 		// TODO Auto-generated method stub
 		return db.findByName(name);
 	}
 
-	public boolean  save(Book book) {
+	public boolean save(ManagementBook book) {
 		// TODO Auto-generated method stub
 		return db.save(book);
 	}
 
-	public boolean delete(Book book) {
+	public boolean delete(ManagementBook book) {
 		// TODO Auto-generated method stub
 		return db.delete(book);
 	}

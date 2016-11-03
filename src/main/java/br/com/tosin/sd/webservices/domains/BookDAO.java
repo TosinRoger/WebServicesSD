@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.tosin.sd.webservices.interfaces.BaseModels;
 import br.com.tosin.sd.webservices.models.Book;
+import br.com.tosin.sd.webservices.models.ManagementBook;
 
 /**
  * Classe que faz a logica de conexao com o banco de dados. 
@@ -21,7 +22,7 @@ import br.com.tosin.sd.webservices.models.Book;
 public class BookDAO implements BaseModels {
 
 	private int count = 0;
-	private List<Book> books;
+	private List<ManagementBook> books;
 	
 	public BookDAO() {
 		// cria uma lista com 5 livro 
@@ -30,17 +31,17 @@ public class BookDAO implements BaseModels {
 		}
 	}
 	
-	public Book getBookById(Long id) {
-		for (Book book : books) {
+	public ManagementBook getBookById(Long id) {
+		for (ManagementBook book : books) {
 			if (book.getId() == id)
 				return book;
 		}
 		return null;
 	}
 	
-	public List<Book> findByName(String name) {
-		List<Book> result = new ArrayList<>();
-		for (Book book : books) {
+	public List<ManagementBook> findByName(String name) {
+		List<ManagementBook> result = new ArrayList<>();
+		for (ManagementBook book : books) {
 			if (book.getTitle().contains(name))
 				result.add(book);
 		}
@@ -48,7 +49,7 @@ public class BookDAO implements BaseModels {
 	}
 
 	@Override
-	public List<Book> getBooks() {
+	public List<ManagementBook> getBooks() {
 		// TODO Auto-generated method stub
 		if(books == null)
 			books = new ArrayList<>();
@@ -56,11 +57,11 @@ public class BookDAO implements BaseModels {
 	}
 
 	@Override
-	public Book createBook(ResultSet rs) {
+	public ManagementBook createBook(ResultSet rs) {
 		// TODO Auto-generated method stub
 		
 		// tem que ser melhorado
-		Book book = new Book(count, 
+		ManagementBook book = new ManagementBook(count, 
 				"Title " + count, 
 				"author " + count, 
 				"Historia para ser contada " + count, 
@@ -71,9 +72,9 @@ public class BookDAO implements BaseModels {
 	}
 
 	@Override
-	public boolean save(Book book) {
+	public boolean save(ManagementBook book) {
 		// TODO Auto-generated method stub
-		for (Book item : getBooks()) {
+		for (ManagementBook item : getBooks()) {
 			if (item.getId() == book.getId()) {
 				// tem que atualizar
 				
@@ -85,7 +86,7 @@ public class BookDAO implements BaseModels {
 	}
 
 	@Override
-	public boolean delete(Book book) {
+	public boolean delete(ManagementBook book) {
 		// TODO Auto-generated method stub
 		return getBooks().remove(book);
 	}

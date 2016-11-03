@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.tosin.sd.webservices.domains.BookService;
-import br.com.tosin.sd.webservices.models.Book;
+import br.com.tosin.sd.webservices.models.ManagementBook;
 import junit.framework.TestCase;
 
 public class BookTest extends TestCase {
@@ -25,31 +25,31 @@ public class BookTest extends TestCase {
 
 	@Test
 	public void testFindBook() {
-		List<Book> books = service.getBooks();
+		List<ManagementBook> books = service.getBooks();
 		assertNotNull(books);
 		assertTrue(books.size() > 0);
 
-		Book book1 = service.getBook(1L);
+		ManagementBook book1 = service.getBook(1L);
 		assertEquals("Title 1", book1.getTitle());
 
-		Book book2 = service.getBooks("Title 2").get(0);
+		ManagementBook book2 = service.getBooks("Title 2").get(0);
 		assertEquals("Historia para ser contada 2", book2.getAbout());
 	}
 
 	@Test
 	public void testSaveUpdateDeleteBook() {
-		Book book = new Book(1000, "Faxe", "Beer", "Sobre cerveja", true, 0);
+		ManagementBook book = new ManagementBook(1000, "Faxe", "Beer", "Sobre cerveja", true, 0);
 
 		boolean save = service.save(book);
 		assertTrue(save);
 
-		Book fetch = service.getBook(1000L);
+		ManagementBook fetch = service.getBook(1000L);
 		assertNotNull(fetch);
 
 		boolean delete = service.delete(book);
 		assertTrue(delete);
 
-		Book fetch2 = service.getBook(1000L);
+		ManagementBook fetch2 = service.getBook(1000L);
 		assertNull(fetch2);
 
 	}

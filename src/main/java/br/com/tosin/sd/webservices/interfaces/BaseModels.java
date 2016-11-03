@@ -4,13 +4,14 @@ import java.sql.ResultSet;
 import java.util.List;
 
 import br.com.tosin.sd.webservices.models.Book;
+import br.com.tosin.sd.webservices.models.ManagementBook;
 
 public interface BaseModels {
 
-	Book getBookById(Long id);
-	List<Book> findByName(String name);
-	List<Book> getBooks();
+	ManagementBook getBookById(Long id);
+	List<ManagementBook> findByName(String name);
+	List<ManagementBook> getBooks();
 	Book createBook(ResultSet rs);
-	boolean save(Book book);
-	boolean delete(Book book);
+	boolean save(ManagementBook book);
+	boolean delete(ManagementBook book);
 }

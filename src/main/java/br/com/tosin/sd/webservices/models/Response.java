@@ -1,5 +1,10 @@
 package br.com.tosin.sd.webservices.models;
 
+/**
+ * Classe que returna a mensagem de erro ou de aceitacao
+ * @author tosin
+ *
+ */
 public class Response {
 	
 	private String status;
@@ -8,6 +13,11 @@ public class Response {
 	public Response() {
 	}
 
+	/**
+	 * Retorna Ok e uma mensagem
+	 * @param string
+	 * @return
+	 */
 	public static Response Ok(String string) {
 		Response r = new Response();
 		r.setStatus("OK");
@@ -15,6 +25,11 @@ public class Response {
 		return r;
 	}
 
+	/**
+	 * Return ERROR e uma mensagem
+	 * @param string
+	 * @return
+	 */
 	public static Response Error(String string) {
 		Response r = new Response();
 		r.setStatus("ERROR");

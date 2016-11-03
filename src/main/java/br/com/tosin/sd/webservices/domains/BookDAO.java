@@ -8,7 +8,6 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 
 import br.com.tosin.sd.webservices.interfaces.BaseModels;
-import br.com.tosin.sd.webservices.models.Book;
 import br.com.tosin.sd.webservices.models.ManagementBook;
 
 /**

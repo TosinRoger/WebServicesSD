@@ -7,11 +7,14 @@ import java.util.Random;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 
+
+/**
+ * Classe de usuario
+ * @author tosin
+ *
+ */
 public class User implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private long id;
 	private String username;
@@ -61,6 +64,10 @@ public class User implements Serializable {
 		return booksLoan;
 	}
 	
+	/**
+	 * Cria um auth em base64 com user:password
+	 * @return
+	 */
 	public String getBase64() {
 		String temp = this.username + ":" + this.pass;
 

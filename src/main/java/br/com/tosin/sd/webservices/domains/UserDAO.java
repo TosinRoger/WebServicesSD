@@ -16,6 +16,12 @@ public class UserDAO {
 		this.users = new ArrayList<>();
 	}
 	
+	/**
+	 * Busca a lista de usuarios
+	 * @param username
+	 * @param pass
+	 * @return
+	 */
 	public User fetchUser(String username, String pass) {
 		for (User item : this.users) {
 			if (item.getUsername().equals(username) && item.getPass().equals(pass)) {
@@ -25,6 +31,11 @@ public class UserDAO {
 		return null;
 	}
 	
+	/**
+	 * Busca a lista de usuarios
+	 * @param id
+	 * @return
+	 */
 	public User fetchUser(long id) {
 		for (User item : this.users) {
 			if (item.getId() == id) {
@@ -34,6 +45,11 @@ public class UserDAO {
 		return null;
 	}
 	
+	/**
+	 * Busca a lista de usuarios
+	 * @param authorization
+	 * @return
+	 */
 	public User fetchUser(String authorization) {
 		for (User item : this.users) 
 			if (item.getBase64().equals(authorization))
@@ -41,6 +57,12 @@ public class UserDAO {
 		return null;
 	}
 	
+	/**
+	 * Cria ou atualiza um usuario
+	 * @param username
+	 * @param pass
+	 * @return 1 se criou, 0 se atualizou
+	 */
 	public long createOrUpdate(String username, String pass) {
 		User user = fetchUser(username, pass);
 		if (user == null) {
@@ -56,6 +78,12 @@ public class UserDAO {
 		}
 	}
 	
+	/**
+	 * Remove um usuario
+	 * @param username
+	 * @param pass
+	 * @return
+	 */
 	public boolean delete(String username, String pass) {
 		User user = fetchUser(username, pass);
 		if (user == null)

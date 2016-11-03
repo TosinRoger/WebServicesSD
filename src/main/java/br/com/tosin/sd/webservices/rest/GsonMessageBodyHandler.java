@@ -18,6 +18,10 @@ import javax.ws.rs.ext.Provider;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+/**
+ * Classe que gera o JSON para envio, no servidor
+ * @author tosin
+ */
 @Provider
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 @Consumes(MediaType.APPLICATION_JSON + ";charset=utf-8")

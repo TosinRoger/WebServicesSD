@@ -36,7 +36,6 @@ public class BookResource {
 	@GET
 	public List<Book> getBook() {
 		List<ManagementBook> managementBooks = bookService.getBooks();
-		
 		return formatList(managementBooks);
 	}
 	

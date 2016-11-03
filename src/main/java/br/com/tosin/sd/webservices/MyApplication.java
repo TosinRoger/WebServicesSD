@@ -5,6 +5,11 @@ import java.util.Map;
 
 import javax.ws.rs.core.Application;
 
+/**
+ * Instanciado pelo jsersey, configura map para o spring.
+ * @author tosin
+ *
+ */
 public class MyApplication extends Application {
 
 	@Override

@@ -10,7 +10,6 @@ import br.com.tosin.sd.webservices.models.ManagementBook;
 @Component
 public class BookService {
 	
-//	private BookDAO db = new BookDAO();
 	@Autowired
 	private BookDAO db;
 

@@ -14,6 +14,11 @@ public class LoanService {
 	private Controller controller;
 	
 	
+	/** Metodo que chama o emprestar livro e retorna as mensagens de OK e Erro
+	 * @param user
+	 * @param book
+	 * @return
+	 */
 	public String loan(User user, Book book) {
 		if (!book.isAvailable()) {
 			return "Livro não está disponível para emprestimo";
@@ -40,7 +45,6 @@ public class LoanService {
 				return ("done");
 		}
 		
-//		return "Deu ruim";
 	}
 	
 	/**

@@ -14,7 +14,6 @@ import br.com.tosin.sd.webservices.utils.Util;
 public class Controller {
 	@Autowired
 	private BookDAO db;
-//	private List<ManagementBook> booksManagement = new ArrayList<>();
 	private List<Reservation> reservations = new ArrayList<>();
 	private OverdueList overdueList;
 
@@ -23,17 +22,6 @@ public class Controller {
 		super();
 		this.overdueList = new OverdueList();
 	}
-	
-	// TODO tem que transformara lista management em DAOBook
-
-//	/**
-//	 * Metodo que inicia o controller
-//	 */
-//	public void execute() {
-//
-//		booksManagement = Util.loadBooks();
-//
-//	}
 
 	// ===============================================================================
 	// CONSULT

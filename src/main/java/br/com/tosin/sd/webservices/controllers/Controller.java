@@ -62,7 +62,7 @@ public class Controller {
 	public int renovation(User client, Book book) {
 		
 		//verifica se tem reserva
-		if (hasReservation(book)){ 
+		if (hasReservation(book, client)){ 
 			return 2;
 		}
 
@@ -102,7 +102,7 @@ public class Controller {
 	public synchronized String loanBook(User client, Book book) {
 		
 		//verifica se tem reserva
-		if (hasReservation(book))
+		if (hasReservation(book, client))
 			return "O livro possui uma reserva";
 		int countBookClient = 0;
 		
@@ -151,7 +151,6 @@ public class Controller {
 		return false;
 	}
 	
-
 	/**
 	 * Metodo que faz a reserva de um livro. Verifica se o livro ja esta na lista de reserva, 
 	 * se o livro ja esta empresado senao adicionar o usuario da lista de reserva.
@@ -172,6 +171,8 @@ public class Controller {
 				if (item.getClient() == null) {
 					return "O livro esta disponivel para ser empresatado";
 				}
+				else if (item.getClient().getId() == client.getId())  
+					return "Você já esta com este livro emprestado.";
 				else {
 					item.setReserve();
 					item.removeReserve();
@@ -207,10 +208,10 @@ public class Controller {
 	 * @param book
 	 * @return TRUE livro tem reserva, FALSE o livro nao tem reserva
 	 */
-	private boolean hasReservation(Book book) {
+	private boolean hasReservation(Book book, User user) {
 		for(Reservation item : reservations) {
 			// livro ja esta reservado
-			if (item.getBook().getId() == book.getId())
+			if (item.getBook().getId() == book.getId() && user.getId() != item.getClient().getId())
 				return true;
 		}
 		return false;

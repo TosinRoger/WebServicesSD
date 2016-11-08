@@ -42,7 +42,7 @@ public class LoanService {
 			else if(done.equals("inadimplente"))
 				return ("Voce esta inadimplemente ate " + controller.buildTextOverdue(user));
 			else 
-				return ("done");
+				return ("Emprestado");
 		}
 		
 	}
